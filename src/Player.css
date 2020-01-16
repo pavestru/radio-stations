@@ -1,0 +1,80 @@
+.Player {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 1em 1.6em;
+  background-color: #e9c9a7;
+  font-size: 200%;
+  box-shadow: 0px 0px 10px 0px black;
+}
+
+.Player__button {
+  margin-right: 0.6em;
+  background-color: #aaa;
+  border: 1px solid #aaa;
+  box-shadow: 0 0 6px #aaa;
+  line-height: 26px;
+  padding: 5px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 200%;
+  cursor: pointer;
+  display: block;
+  flex: 0 0 auto;
+}
+
+.Player__close-button {
+  cursor: pointer;
+}
+
+.Player__icon {
+  width: 60px;
+  height: 60px;
+}
+.Player__icon path {
+  fill: #444;
+}
+.Player__stream-name {
+  width: 70%;
+  /* flex: 1 1 200px; */
+}
+
+@-webkit-keyframes playing-shadow {
+  0% {
+    border-color: #aaa;
+    box-shadow: none;
+  }
+  50% {
+    border-color: rgb(77, 80, 255);
+    box-shadow: 0 0 6px rgb(77, 80, 255);
+  }
+  100% {
+    border-color: #aaa;
+    box-shadow: none;
+  }
+}
+
+@keyframes playing-shadow {
+  0% {
+    border-color: #aaa;
+    box-shadow: none;
+  }
+  50% {
+    border-color: rgb(77, 80, 255);
+    box-shadow: 0 0 6px rgb(77, 80, 255);
+  }
+  100% {
+    border-color: #aaa;
+    box-shadow: none;
+  }
+}
+.Player__button--playing {
+  -webkit-animation: playing-shadow ease-in-out 3s infinite;
+  animation: playing-shadow ease-in-out 3s infinite;
+}
