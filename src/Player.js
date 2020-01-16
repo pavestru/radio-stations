@@ -1,25 +1,12 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import "./Player.css";
 import { Play, Stop, Close } from "./icons";
+import { useAudioPlayer } from "./customHooks";
 
 export function Player(props) {
   const audioRef = useRef();
 
-  const [state, setState] = useState({
-    playing: props.initialPlaying ?? true
-  });
-
-  useEffect(() => {
-    if (state.playing) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
-    }
-  }, [state]);
-
-  const togglePlaying = () => {
-    setState(prevState => ({ ...prevState, playing: !prevState.playing }));
-  };
+  const [state, togglePlaying] = useAudioPlayer(audioRef, props.initialPlaying);
 
   return (
     <div className="Player">
