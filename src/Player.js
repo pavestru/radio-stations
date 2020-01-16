@@ -4,9 +4,11 @@ import { Play, Stop, Close } from "./icons";
 
 export function Player(props) {
   const audioRef = useRef();
+
   const [state, setState] = useState({
     playing: props.initialPlaying ?? true
   });
+
   useEffect(() => {
     if (state.playing) {
       audioRef.current.play();
@@ -18,6 +20,7 @@ export function Player(props) {
   const togglePlaying = () => {
     setState(prevState => ({ ...prevState, playing: !prevState.playing }));
   };
+
   return (
     <div className="Player">
       <audio ref={audioRef} src={props.stream.streamUrl} />
